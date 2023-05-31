@@ -22,7 +22,7 @@ const AuthForm = () => {
 
   useEffect(() => {
     if (session?.status === "authenticated") {
-      router.push("/conversations");
+      router.push("/users");
     }
   }, [session?.status, router]);
 
@@ -82,7 +82,7 @@ const AuthForm = () => {
           }
 
           if (callback?.ok) {
-            router.push("/conversations");
+            router.push("/users");
           }
         })
         .finally(() => setIsLoading(false));
@@ -99,7 +99,7 @@ const AuthForm = () => {
         }
 
         if (callback?.ok) {
-          router.push("/conversations");
+          router.push("/users");
         }
       })
       .finally(() => setIsLoading(false));
