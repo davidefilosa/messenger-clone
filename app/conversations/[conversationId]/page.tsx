@@ -1,7 +1,38 @@
-import React from "react";
+interface IParams {
+  conversationId: string;
+}
 
-const ConversationHome = () => {
-  return <div>A</div>;
+import getConversationById from "@/app/actions/getConversetionById";
+import getMessages from "@/app/actions/getMessages";
+import EmptyState from "@/app/components/EmptyState";
+import Header from "./components/Header";
+import Body from "./components/Body";
+import Form from "./components/Form";
+
+const ConversationId = async ({ params }: { params: IParams }) => {
+  const { conversationId } = params;
+  const conversation = await getConversationById(conversationId);
+  const messages = await getMessages(conversationId);
+
+  if (!conversation) {
+    return (
+      <div className="lg:pl-80 h-full">
+        <div className="h-full flex flex-col">
+          <EmptyState />
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="lg:pl-80 h-full">
+      <div className="h-full flex flex-col">
+        <Header conversation={conversation} />
+        <Body />
+        <Form />
+      </div>
+    </div>
+  );
 };
 
-export default ConversationHome;
+export default ConversationId;

@@ -1,7 +1,6 @@
 import prisma from "@/app/libs/prismadb";
 import { NextResponse } from "next/server";
 import getCurrentUser from "@/app/actions/getCurrentUser";
-import { isGeneratorFunction } from "util/types";
 
 export async function POST(request: Request) {
   try {
