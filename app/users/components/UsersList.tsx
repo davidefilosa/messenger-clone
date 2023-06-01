@@ -15,7 +15,7 @@ const UsersList: React.FC<UsersListProps> = ({ users }) => {
         <div className="flex flex-col">
           <div className="text-2xl font-fold text-neutral-800 py-4">People</div>
           {users.map((user) => (
-            <UserBox user={user} />
+            <UserBox user={user} key={user.id} />
           ))}
         </div>
       </div>

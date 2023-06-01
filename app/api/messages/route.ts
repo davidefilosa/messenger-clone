@@ -47,8 +47,9 @@ export async function POST(request: Request) {
       include: { users: true, messages: { include: { seen: true } } },
     });
 
-    return NextResponse.json(message);
+    return NextResponse.json(newMessage);
   } catch (error: any) {
+    console.log(error);
     return new NextResponse("Internal error", { status: 400 });
   }
 }
