@@ -1,9 +1,9 @@
 "use client";
 
-import useActiveList from "../hooks/useActiveList";
+import useActiveChannel from "../hooks/useActiveChannel";
 
 const ActiveStatus = () => {
-  useActiveList();
+  useActiveChannel();
 
   return null;
 };
